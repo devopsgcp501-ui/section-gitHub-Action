@@ -1,7 +1,7 @@
 name: github action2
 on: [ push, workflow_dispatch]
 jobs:
- myjob:
+ test:
    runs-on: ubuntu-latest
    steps:
     - name: clone github repo            #https://github.com/actions/checkout
@@ -13,5 +13,17 @@ jobs:
     - name: install node dependencies
       run: npm ci 
     - name: run tests 
-      run: npm test    
-   
+      run: npm test   
+ Deploy:
+   runs-on: ubuntu-latest
+   steps:
+    - name: clone github repo            #https://github.com/actions/checkout
+      uses: actions/checkout@v7
+    - name: install nodejs              #https://github.com/actions/setup-node
+      uses: actions/setup-node@v7
+      with:
+       node-version: 22
+    - name: install node dependencies
+      run: npm ci 
+    - name: Deploying
+      run: echo "deploying ..."
