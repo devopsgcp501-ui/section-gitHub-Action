@@ -1,35 +1,37 @@
 name: Event demo1
 on:
-  pull_request:
-     branches:
-     - main                           #event filter
-     - 'dev-*'                        #event filter    
-     - 'feat/**'     
-     types:
-     - opened                         #activity type
-  workflow_dispatch:
-  push: 
-    branches:
-    - main         
-    - 'dev-*'                        #dev-new ,dev-this-is-new
-    - 'feat/**'                      #feat/new,  feat/new/button
-    - master
+    pull_request:
+      branches:
+          - main                           				  #event filter
+          - 'dev-*'                       					#event filter    
+          - 'feat/**'     
+          -  master
+      types:
+           - opened                       			              #activity type
+    workflow_dispatch:
+    push: 
+        branches:
+           - main         
+           - 'dev-*'                       					#dev-new ,dev-this-is-new
+           - 'feat/**'                     					#feat/new,  feat/new/button
+           - master
     #https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onpull_requestpull_request_targetbranchesbranches-ignore
-    #paths-ignore:
-    #- '.github/workflows/*'      #it will not trigger if changes for above branches in workflows path               '
+        paths-ignore:
+            - '.github/workflows/*'      
+#it will not trigger if changes for above branches in workflows path               '
 jobs:
-   deploy:
-    runs-on: ubuntu-latest
-    steps:
-     - name: output event mode
-       run: echo "${{ toJSON(github.event) }}"
-     - name: Get code
-       uses: actions/checkout@v7
-     - name: Install dependencies
-       run: npm ci
-     - name: Test code
-       run: npm run test
-     - name: Build code 
-       run: npm run build 
-     - name: Deploy project
-       run: echo "Deploying"
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+         - name: output event mode
+           run: echo "${{ toJSON(github.event) }}"
+         - name: Get code
+           uses: actions/checkout@v7
+         - name: Install dependencies
+           run: npm ci
+         - name: Test code
+           run: npm run test
+         - name: Build code 
+           run: npm run build 
+         - name: Deploy project
+           run: echo "Deploying"
