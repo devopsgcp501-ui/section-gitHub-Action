@@ -1,15 +1,15 @@
-Name: Event demo1
+name: Event demo1
 on:
   pull_request:
-    types:
-    - opened               #activity type
-    branches:
-    - main                #event filter
-    - 'dev-*'             #event filter    
-    - 'feat/**'     
+     types:
+     - opened               #activity type
+     branches:
+     - main                #event filter
+     - 'dev-*'             #event filter    
+     - 'feat/**'     
   workflow_dispatch:
   push: 
-   branches:
+    branches:
     - main         
     - 'dev-*'       #dev-new ,dev-this-is-new
     - 'feat/**'     #feat/new,  feat/new/button
