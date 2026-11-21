@@ -13,6 +13,7 @@ on:
     - main         
     - 'dev-*'                        #dev-new ,dev-this-is-new
     - 'feat/**'                      #feat/new,  feat/new/button
+    - master
     #https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onpull_requestpull_request_targetbranchesbranches-ignore
     #paths-ignore:
     #- '.github/workflows/*'      #it will not trigger if changes for above branches in workflows path               '
