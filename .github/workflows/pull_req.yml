@@ -15,7 +15,7 @@ on:
     - 'dev-*'                        #dev-new ,dev-this-is-new
     - 'feat/**'                      #feat/new,  feat/new/button
     #https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onpull_requestpull_request_targetbranchesbranches-ignore
-    path-ignore:
+    paths-ignore:
        - '.github/workflows/*'      # It will not trigger if changes for above branches in workflows path               '
 jobs:
    deploy:
