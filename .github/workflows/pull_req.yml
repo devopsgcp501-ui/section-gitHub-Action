@@ -1,4 +1,3 @@
-#
 name: Event demo1
 on:
   pull_request:
