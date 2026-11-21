@@ -1,7 +1,6 @@
 name: Event demo1
 on:
   pull_request:
-
      branches:
      - main                           #event filter
      - 'dev-*'                        #event filter    
@@ -16,7 +15,7 @@ on:
     - 'feat/**'                      #feat/new,  feat/new/button
     #https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onpull_requestpull_request_targetbranchesbranches-ignore
     paths-ignore:
-       - '.github/workflows/*'      # It will not trigger if changes for above branches in workflows path               '
+    - '.github/workflows/*'      #it will not trigger if changes for above branches in workflows path               '
 jobs:
    deploy:
     runs-on: ubuntu-latest
